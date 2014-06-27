@@ -1,4 +1,4 @@
-package com.mynet.utilities.servlet;
+package com.twitter;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
