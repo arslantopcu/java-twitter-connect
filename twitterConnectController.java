@@ -1,4 +1,4 @@
-package com.twitter.controller;
+package com.twitter;
 
 import java.io.IOException;
 
