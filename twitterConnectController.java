@@ -38,20 +38,18 @@ public class twitterConnectController {
 		
 		try {
 			
-            RequestToken requestToken = twitter.getOAuthRequestToken(callbackURL.toString());
-
-            CommonCookie.add(servletResponse, "twitter4j", requestToken.getToken()+":"+requestToken.getTokenSecret(), "domain.com", "/", -1);            
-            CommonCookie.add(servletResponse, "newregrurl", rurl,"domain.com", "/", -1);
-            
-            try {
-				servletResponse.sendRedirect(requestToken.getAuthenticationURL());
-			} catch (IOException e) {
-				logger.error("IOException.", e);
-			}
-
-        } catch (TwitterException e) {
-        	logger.error("TwitterException.", e);
-        }
+	    		RequestToken requestToken = twitter.getOAuthRequestToken(callbackURL.toString());
+	
+	    		CommonCookie.add(servletResponse, "twitter4j", requestToken.getToken()+":"+requestToken.getTokenSecret(), "domain.com", "/", -1);            
+	    		CommonCookie.add(servletResponse, "newregrurl", rurl,"domain.com", "/", -1);
+	    
+			servletResponse.sendRedirect(requestToken.getAuthenticationURL());
+			
+		}catch (IOException e) {
+			logger.error("IOException.", e);	
+	        } catch (TwitterException e) {
+	        	logger.error("TwitterException.", e);
+	        }
 		
 	}
 	
@@ -87,9 +85,9 @@ public class twitterConnectController {
 			twitter.setOAuthAccessToken(accessToken);            
 			twitter.getOAuthAccessToken(verifier);
             
-        } catch (TwitterException e) {
-        	logger.error("TwitterException", e);
-        }
+        	} catch (TwitterException e) {
+        		logger.error("TwitterException", e);
+        	}
 				
 		User user = null;
 		try {
