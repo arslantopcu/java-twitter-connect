@@ -1,4 +1,4 @@
-package fw.spring.mynet.controller;
+package com.twitter.controller;
 
 import java.io.IOException;
 
